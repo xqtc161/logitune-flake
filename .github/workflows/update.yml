@@ -62,6 +62,7 @@ jobs:
         if: steps.release.outputs.up_to_date == 'false'
         uses: peter-evans/create-pull-request@v7
         with:
+          token: ${{ secrets.PR_TOKEN }}
           commit-message: "logitune: ${{ steps.release.outputs.current }} -> ${{ steps.release.outputs.latest }}"
           title: "logitune: ${{ steps.release.outputs.current }} -> ${{ steps.release.outputs.latest }}"
           body: |
