@@ -43,6 +43,13 @@
             systemd
           ];
 
+          postPatch = ''
+            # if upstream hardcodes /etc/xdg/autostart rewrite it to a relative path
+            # so it ends upp under $out/etc/xdg/autostart during cmake --install
+            substituteInPlace CMakeLists.txt \
+              --replace-fail "/etc/xdg/autostart" "etc/xdg/autostart"
+          '';
+
           cmakeFlags = [
             "-DBUILD_TESTING=OFF"
             "-DLOGITUNE_VERSION=${version}"
