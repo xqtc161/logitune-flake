@@ -45,6 +45,7 @@
 
           cmakeFlags = [
             "-DBUILD_TESTING=OFF"
+            "-DLOGITUNE_VERSION=${version}"
           ];
 
           meta = with pkgs.lib; {
