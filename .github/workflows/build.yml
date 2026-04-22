@@ -1,0 +1,22 @@
+name: Build logitune
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - trunk
+    paths:
+      - flake.nix
+      - flake.lock
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@v16
+
+      - name: Build
+        run: nix build
