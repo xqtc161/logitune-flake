@@ -20,13 +20,13 @@
       {
         packages.default = pkgs.stdenv.mkDerivation rec {
           pname = "logitune";
-          version = "0.3.5";
+          version = "0.3.6";
 
           src = pkgs.fetchFromGitHub {
             owner = "mmaher88";
             repo = "logitune";
             rev = "v${version}";
-            hash = "sha256-oqCbxTRG3F9WrgiyZKqkeqsxWPRnxNfSR8F+T0S7vzU=";
+            hash = "sha256-1WOslJb9u2LndgueIFemWBNsxrrrmyKqd+5nQZwhqYE=";
           };
 
           nativeBuildInputs = with pkgs; [
